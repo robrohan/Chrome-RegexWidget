@@ -1,0 +1,33 @@
+<html>
+<head>
+	<style>@import "RegExp.css";</style>
+	<script type="text/javascript" src="RegExp.js"></script>
+	<script>
+		load();
+	</script>
+</head>
+<body>
+    <div style="width: 430px; height: 282px;">
+        <img id="frontImg" src="images/front.png" alt="">
+
+        <div id="info"></div>
+        <textarea id="txtRegex" onkeyup="runWithPause();">/[A-Za-z]+/</textarea>
+        <textarea id="txtTarget" onkeyup="runWithPause();"></textarea>
+        <div id="chkCaseControl" onclick="runRegex();">
+            <input type="checkbox" name="" id="chkCase" value="">
+            <div style="position: absolute; top: 2px; left: 18px; text-align: left; vertical-align: middle;" id="chkCaseLabel">Case Insensitive</div>
+        </div>
+        <div id="chkGlobalControl" onclick="runRegex();">
+            <input type="checkbox" name="Checkbox" id="chkGlobal" checked="true">
+            <div style="position: absolute; top: 2px; left: 18px; text-align: left; vertical-align: middle;" id="chkGlobalLabel">Global</div>
+        </div>
+        <div id="scrollArea">
+            <div id="regexresult" class="content" style="position: absolute; left: 0px; top: 0px; right: 4px; bottom: 0px; overflow-x: hidden; overflow-y: auto; "></div></div>
+        <div id="chkMultiLineControl" onclick="runRegex(event)">
+            <input type="checkbox" name="Checkbox" id="chkMultiLine">
+            <div id="chkMultiLineLabel" onclick=" ">Multiline</div>
+        </div>
+    </div>
+</body>
+</html>
+

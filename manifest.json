@@ -1,0 +1,13 @@
+{
+  "name": "Regex Widget",
+  "version": "1.0",
+  "description": "Regex Widget lets you test out regular expressions from within the browser",
+  "icons": { "128": "robot_icon.png" },
+  "browser_action": {
+    "default_title": "Regex Widget",
+    "default_icon": "icon.png",
+    "popup": "popup.html"
+  },
+  "author": "Rob Rohan",
+  "copyright": "Copyright 2011 Rob Rohan. All Rights Reserved"
+}
