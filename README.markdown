@@ -1,1 +1,1 @@
-zip -r RegexWidget Chrome-RegexWidget -x "*.pem" "*.git*" "*.DS_Store"
+cd ../; zip -r RegexWidget.zip Chrome-RegexWidget -x "*.pem" "*.git*" "*.DS_Store"
