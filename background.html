@@ -1,0 +1,29 @@
+<html>
+<head>
+<script>
+    function setItem(key, value) {
+        try {
+            window.localStorage.removeItem(key);
+            window.localStorage.setItem(key, value);
+        }catch(e) {
+            console.log(e);
+        }
+    }
+
+    function getItem(key) {
+        var value;
+        try {
+            value = window.localStorage.getItem(key);
+        }catch(e) {
+            console.log(e);
+        }
+        return value;
+    }
+
+    function clearStrg() {
+        window.localStorage.clear();
+    }
+</script>
+</head>
+</html>
+

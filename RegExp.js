@@ -4,24 +4,19 @@ var KEY_CASE 			= "com.robrohan.regex.case";
 var KEY_GLOBAL 			= "com.robrohan.regex.global";
 var KEY_MULTILINE 		= "com.robrohan.regex.multiline";
 
-/**
- * Variable: current_command
- * Used when calling the ftp command line script
- */
-var current_command;
-var current_server;
-
-var delim = "\u0177"; //±
+var timeOutItem = null;
 
 function load()
 {
-	setupParts();
-	
+	setTimeout('setupParts()',300);
+}
+
+function setupParts() {
 	//load any saved values (very first run will be undefined)
 	var lastregex = preferenceValue(KEY_LAST_REGEX);
-	if(lastregex != null && typeof lastregex != "undefined")
+	if(lastregex != null)
 	{
-		document.getElementById("txtRegex").value = lastregex;
+		document.getElementById("txtRegex").innerText = lastregex;
 		document.getElementById("txtTarget").value = preferenceValue(KEY_LAST_TARGET);
 		document.getElementById("chkCase").checked = parseBooleanValue(preferenceValue(KEY_CASE));
 		document.getElementById("chkGlobal").checked = parseBooleanValue(preferenceValue(KEY_GLOBAL));
@@ -46,11 +41,11 @@ function parseBooleanValue(from)
 var timeOutItem = null;
 function runWithPause() 
 {
-	//if(timeOutItem == null) 
+	//if(timeOutItem == null)
 	//{
-	//	timeOutItem = setTimeout("runRegex()", 200);
+	//	timeOutItem = setTimeout("runRegex()", 500);
 	//}
-	runRegex()
+	runRegex();
 }
 
 function runRegex()
@@ -147,25 +142,16 @@ function runRegex()
 
 function refreshScrollArea() {
 	var contentarea = document.getElementById("scrollArea");
-	contentarea.object.refresh();
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
-
 function setPreferences(key, value) {
-	if(window.widget) {
-		widget.setPreferenceForKey(value, key);
-	}
+	chrome.extension.getBackgroundPage().setItem(key, value);
 }
 
 function preferenceValue(key) {
-	var value = null;
-	
-	if(window.widget) {
-		value = widget.preferenceForKey(key);
-	}
-	
+	var value = chrome.extension.getBackgroundPage().getItem(key);
+	console.log("my value:" + value);
 	return value;
 }
 ///////////////////////////////////////////////////////////////////////////
